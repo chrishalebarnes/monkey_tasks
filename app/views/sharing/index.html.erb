@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td>
+              <% if task.completed %>
+                <span class="strike"><%= task.name %></span>
+              <% else %>
+                <%= task.name %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>  	
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monkey Tasks</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="fixed">
+	<nav class="top-bar" data-topbar role="navigation">
+	  <ul class="title-area">
+	    <li class="name">
+	      <h1><a href="/">Monkey Tasks</a></h1>
+	    </li>
+	  </ul>
+	</nav>	
+</div>	
+<div class="main-content">
+	<%= yield %>
+</div>
+<footer>
+	<h4>Monkey Tasks</h4>
+</footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<div class="panel login-panel">	
+	<%= form_tag('/login') do %>
+	    <% if flash[:notice] %>
+			<div class="row">
+				<div data-alert class="alert-box <%=flash[:notice].include?('invalid') ? 'alert' : 'success' %>">
+					<%= flash[:notice] %>
+					<a href="#" class="close">&times;</a>
+				</div>
+			</div>
+		<% end %>
+		<div class="row">
+			<div class="small-2 columns">
+				<%= label_tag 'email', 'Email', class:'right inline' %>
+			</div>
+			<div class="small-10 columns">
+		      <%= text_field_tag :email %>
+		  	</div>
+  		</div>
+  		<div class="row">
+		  	<div class="small-2 columns">
+		  		<%= label_tag 'password', 'Password', class:'right inline' %>
+		  	</div>
+		  	<div class="small-10 columns">
+		      <%= password_field_tag :password %>
+		  	</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="right">
+      			<%= submit_tag 'Login', class: 'button success login-button' %>
+      		</div>
+      	</div>
+	<% end %>
+</panel>

@@ -1,0 +1,64 @@
+<div class="panel">
+  <div class="row">
+    <%= form_for(@task) do |f| %>
+      <% if @task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+          <ul>
+          <% @task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= f.text_field :name %>
+      <%= f.submit 'Add', class: 'button success' %>
+    <% end %>
+  </div>
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th width="5%">Complete</th>
+          <th>Task</th>
+          <th width="5%">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td class="action">
+              <%= link_to raw('<i class="fa fa-check-circle-o fa-lg"></i>'), task_complete_path(task), method: :put %>
+            </td>
+            <td>
+              <% if task.completed %>
+                <%= link_to task.name, '#', class:'strike', :data => { 'reveal-id' => "task-modal-#{task.id}" } %>
+              <% else %>
+                <%= link_to task.name, '#', :data => { 'reveal-id' => "task-modal-#{task.id}" } %>
+              <% end %>
+              <div id="task-modal-<%=task.id %>" class="reveal-modal" data-reveal role="dialog">
+                <h2>Edit Task</h2>
+                <%= form_for(task) do |task_form| %>
+                    <%= task_form.text_field :name %>
+                    <%= task_form.submit 'Save', class: 'button success' %>
+                <% end %>
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+              </div>              
+            </td>
+            <td class="action">
+              <%= link_to raw('<i class="fa fa-trash fa-lg"></i>'), task, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="share">
+      <%= form_for(@share, url: '/share', method: :post) do |f| %>
+        <%= f.collection_select(:id, @users, :id, :email, { :prompt => 'Select a User' }, class: 'user-list') %>
+        <%= f.submit 'Share', class: 'button success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="panel">
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Shared Task Lists</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shared.each do |share| %>
+          <tr>
+            <td>
+            	<%= link_to share.user.email,"/users/#{share.from_user_id}/tasks" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>  	
+  </div>
+</div>

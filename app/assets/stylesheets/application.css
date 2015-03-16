@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ label {
+ 	font-weight: bold;
+ }
+
+.main-content {
+	margin-top: 2em;
+}
+
+footer {
+	background-color: #333333;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 4em;
+    text-align: center;
+}
+
+footer h4 {
+    color: #ffffff;
+    margin-top: 0.8em;
+}
+
+a i.fa-trash {
+	color: red;
+}
+
+a i.fa-check-circle-o {
+	color: green;
+}
+
+td.action {
+	text-align: center;
+}
+
+.login-button {
+	margin-right: 1em;
+}
+
+.panel.login-panel {
+	padding-top: 3em;
+}
+
+.strike {
+	text-decoration: line-through;
+}
